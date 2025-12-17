@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>transcriptomic_analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Transcriptomic_analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/popper.min.js"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Transcriptomic_analysis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Transcriptomic_analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Transcriptomic_analysis_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Transcriptomic_analysis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Transcriptomic_analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Transcriptomic_analysis_files/libs/bootstrap/bootstrap-55aa396ea3e988129bcec43acf404917.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="project-holofishcolour" class="level1">
+<h1><strong>Project: HOLOFISHCOLOUR</strong></h1>
+</section>
+<section id="transcriptomic-analysis-of-pigmentation-disorders-in-turbot-scophthalmus-maximus" class="level1">
+<h1>Transcriptomic Analysis of Pigmentation Disorders in Turbot (<em>Scophthalmus maximus</em>)</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><strong>Task 3 – Transcriptomic Characterization (RNA-seq)</strong></p>
+<hr>
+</section>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">1. Objectives</h2>
+<p>The main objective of this task was to generate a comprehensive transcriptomic profile of selected tissues from normally pigmented and pseudo-albino turbot (<em>Scophthalmus maximus</em>), in order to:</p>
+<ul>
+<li>Characterize global gene expression patterns associated with pigmentation phenotypes.</li>
+<li>Identify differentially expressed genes between normally pigmented and malpigmented individuals.</li>
+<li>Explore molecular pathways potentially involved in pseudo-albinism and pigmentation disorders.</li>
+</ul>
+<p>This task comprised the following steps:</p>
+<ol type="1">
+<li>RNA isolation and quality assessment.<br>
+</li>
+<li>RNA library construction and high-throughput sequencing.<br>
+</li>
+<li>Bioinformatic processing and differential expression analysis.</li>
+</ol>
+<hr>
+</section>
+<section id="experimental-design-and-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="experimental-design-and-sampling">2. Experimental Design and Sampling</h2>
+<section id="biological-material" class="level3">
+<h3 class="anchored" data-anchor-id="biological-material">2.1 Biological Material</h3>
+<p>Three individuals per phenotype (normal vs pseudo-albino) were selected from tanks <strong>E6</strong> and <strong>E8</strong>, where pigmentation differences were most pronounced.</p>
+<ul>
+<li><strong>Tank E6:</strong> offspring from two different parental pairs.<br>
+</li>
+<li><strong>Tank E8:</strong> half-sib family (shared mother, two different fathers).</li>
+</ul>
+<p>From each individual, <strong>skin and intestine</strong> samples were collected.</p>
+<hr>
+</section>
+<section id="sample-types-and-pigmentation-categories" class="level3">
+<h3 class="anchored" data-anchor-id="sample-types-and-pigmentation-categories">2.2 Sample Types and Pigmentation Categories</h3>
+<ul>
+<li><strong>Normally pigmented fish:</strong>
+<ul>
+<li>Pigmented skin (dark) on the ocular side</li>
+<li>Non-pigmented skin (light) on the blind side</li>
+</ul></li>
+<li><strong>Pseudo-albino fish:</strong>
+<ul>
+<li>Pigmented and non-pigmented skin on both ocular and blind sides</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="sample-overview" class="level3">
+<h3 class="anchored" data-anchor-id="sample-overview">2.3 Sample Overview</h3>
+<p><strong>Table 1. Samples selected for transcriptomic analysis</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sample ID</th>
+<th>Tissue</th>
+<th>Tank</th>
+<th>Individual</th>
+<th>Pigmentation phenotype</th>
+<th>Body side</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P31</td>
+<td>Skin</td>
+<td>E6</td>
+<td>46</td>
+<td>Normal</td>
+<td>Ocular</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P32</td>
+<td>Skin</td>
+<td>E6</td>
+<td>46</td>
+<td>Normal</td>
+<td>Blind</td>
+<td>Light</td>
+</tr>
+<tr class="odd">
+<td>P33</td>
+<td>Skin</td>
+<td>E8</td>
+<td>52</td>
+<td>Normal</td>
+<td>Ocular</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P34</td>
+<td>Skin</td>
+<td>E8</td>
+<td>52</td>
+<td>Normal</td>
+<td>Blind</td>
+<td>Light</td>
+</tr>
+<tr class="odd">
+<td>P41</td>
+<td>Skin</td>
+<td>E8</td>
+<td>142</td>
+<td>Malpigmented</td>
+<td>Ocular</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P42</td>
+<td>Skin</td>
+<td>E8</td>
+<td>142</td>
+<td>Malpigmented</td>
+<td>Ocular</td>
+<td>Light</td>
+</tr>
+<tr class="odd">
+<td>P43</td>
+<td>Skin</td>
+<td>E8</td>
+<td>142</td>
+<td>Malpigmented</td>
+<td>Blind</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P44</td>
+<td>Skin</td>
+<td>E8</td>
+<td>131</td>
+<td>Malpigmented</td>
+<td>Blind</td>
+<td>Light</td>
+</tr>
+<tr class="odd">
+<td>P45</td>
+<td>Skin</td>
+<td>E6</td>
+<td>130</td>
+<td>Malpigmented</td>
+<td>Ocular</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P46</td>
+<td>Skin</td>
+<td>E6</td>
+<td>130</td>
+<td>Malpigmented</td>
+<td>Ocular</td>
+<td>Light</td>
+</tr>
+<tr class="odd">
+<td>P47</td>
+<td>Skin</td>
+<td>E6</td>
+<td>130</td>
+<td>Malpigmented</td>
+<td>Blind</td>
+<td>Dark</td>
+</tr>
+<tr class="even">
+<td>P48</td>
+<td>Skin</td>
+<td>E6</td>
+<td>130</td>
+<td>Malpigmented</td>
+<td>Blind</td>
+<td>Light</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="sample-collection" class="level2">
+<h2 class="anchored" data-anchor-id="sample-collection">3. Sample Collection</h2>
+<section id="skin-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="skin-sampling">3.1 Skin Sampling</h3>
+<p>Fish were maintained at −80 °C and placed on ice prior to sampling to prevent rapid thawing. While still frozen, approximately <strong>20 mg of skin tissue</strong> were excised using sterile dissection tools.</p>
+<p>Muscle tissue was carefully removed by gentle scraping to avoid contamination.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Figure_1_skin_sampling.png" class="img-fluid figure-img"></p>
+<figcaption>Skin sampling procedure</figcaption>
+</figure>
+</div>
+<p><em>Figure 1. Skin sampling for transcriptomic analysis. A–B: Sampling areas in pseudo-albino and normally pigmented turbot. Areas outlined with yellow dashed lines correspond to non-pigmented skin, whereas areas outlined in red correspond to pigmented skin. C: Skin incision and sample collection.</em></p>
+<hr>
+</section>
+<section id="intestinal-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="intestinal-sampling">3.2 Intestinal Sampling</h3>
+<p>Intestinal samples were obtained by ventral dissection. The visceral mass was removed, and intestinal contents were gently expelled before collecting the posterior intestine segment.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Figure_15_intestine_sampling.png" class="img-fluid figure-img"></p>
+<figcaption>Intestine sampling procedure</figcaption>
+</figure>
+</div>
+<p><em>Figure 2. Intestinal sampling procedure.</em></p>
+<hr>
+</section>
+</section>
+<section id="rna-extraction-and-quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="rna-extraction-and-quality-assessment">4. RNA Extraction and Quality Assessment</h2>
+<section id="rna-isolation" class="level3">
+<h3 class="anchored" data-anchor-id="rna-isolation">4.1 RNA Isolation</h3>
+<p>Total RNA was extracted using a <strong>TRIzol™ + Phasemaker™ Tubes</strong> protocol, followed by purification with the <strong>RNeasy Mini Kit (Qiagen)</strong>.</p>
+<p>RNA concentration was measured using <strong>NanoDrop™ One</strong>, and integrity was assessed by <strong>1.5% agarose gel electrophoresis</strong>.</p>
+<hr>
+</section>
+<section id="rna-extraction-quality-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="rna-extraction-quality-metrics">4.2 RNA Extraction Quality Metrics</h3>
+<p><strong>Table 2. RNA concentration and purity metrics</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sample</th>
+<th>Concentration (ng/µl)</th>
+<th>A260/A280</th>
+<th>A260/A230</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P31</td>
+<td>1142.7</td>
+<td>2.14</td>
+<td>2.10</td>
+</tr>
+<tr class="even">
+<td>P32</td>
+<td>813.4</td>
+<td>2.14</td>
+<td>2.18</td>
+</tr>
+<tr class="odd">
+<td>P33</td>
+<td>338.9</td>
+<td>2.12</td>
+<td>2.24</td>
+</tr>
+<tr class="even">
+<td>P34</td>
+<td>440.5</td>
+<td>2.10</td>
+<td>2.27</td>
+</tr>
+<tr class="odd">
+<td>P35</td>
+<td>299.3</td>
+<td>2.12</td>
+<td>1.08</td>
+</tr>
+<tr class="even">
+<td>P36</td>
+<td>308.8</td>
+<td>2.13</td>
+<td>2.18</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="rna-seq-library-preparation-and-sequencing" class="level2">
+<h2 class="anchored" data-anchor-id="rna-seq-library-preparation-and-sequencing">5. RNA-Seq Library Preparation and Sequencing</h2>
+<p>RNA sequencing was performed by <strong>Novogene (WOBI service)</strong> using strand-specific mRNA libraries.</p>
+<section id="sequencing-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="sequencing-specifications">5.1 Sequencing Specifications</h3>
+<p><strong>Table 3. RNA-seq technical specifications</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Platform</td>
+<td>NovaSeq X Plus</td>
+</tr>
+<tr class="even">
+<td>Read type</td>
+<td>Paired-end (PE150)</td>
+</tr>
+<tr class="odd">
+<td>Library type</td>
+<td>Directional mRNA (polyA enrichment)</td>
+</tr>
+<tr class="even">
+<td>Quality threshold</td>
+<td>Q30 ≥ 85%</td>
+</tr>
+<tr class="odd">
+<td>Data output</td>
+<td>≥ 6 Gb per sample</td>
+</tr>
+<tr class="even">
+<td>Number of samples</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="rna-quality-control-bioanalyzer" class="level2">
+<h2 class="anchored" data-anchor-id="rna-quality-control-bioanalyzer">6. RNA Quality Control (Bioanalyzer)</h2>
+<p>RNA integrity was evaluated using the <strong>Agilent 5400 Bioanalyzer</strong>, generating RNA Integrity Number (RIN) values.</p>
+<ul>
+<li>Most samples showed <strong>RIN values between 7.0 and 9.8</strong>, suitable for RNA-seq.</li>
+<li>Sample <strong>IT12 (RIN = 3.8)</strong> failed QC and was excluded.</li>
+<li>Sample <strong>IT16 (RIN = 6.0)</strong> showed moderate degradation and was also discarded.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Figure_20_RNA_QC.png" class="img-fluid figure-img"></p>
+<figcaption>RNA Bioanalyzer profiles</figcaption>
+</figure>
+</div>
+<p><em>Figure 3. Representative Bioanalyzer electropherograms.</em></p>
+<hr>
+</section>
+<section id="reference-genome" class="level2">
+<h2 class="anchored" data-anchor-id="reference-genome">7. Reference Genome</h2>
+<p>RNA-seq analyses were conducted using the <strong>Scophthalmus maximus ASM1334776v1</strong> genome assembly (Ensembl release 113).</p>
+<section id="genome-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="genome-statistics">7.1 Genome Statistics</h3>
+<p><strong>Table 4. Reference genome summary</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assembly</td>
+<td>ASM1334776v1</td>
+</tr>
+<tr class="even">
+<td>Genome size</td>
+<td>556,696,898 bp</td>
+</tr>
+<tr class="odd">
+<td>Coding genes</td>
+<td>21,263</td>
+</tr>
+<tr class="even">
+<td>Non-coding genes</td>
+<td>12,989</td>
+</tr>
+<tr class="odd">
+<td>Gene transcripts</td>
+<td>76,329</td>
+</tr>
+<tr class="even">
+<td>Annotation source</td>
+<td>Ensembl</td>
+</tr>
+</tbody>
+</table>
+<p>The following files were used:</p>
+<ul>
+<li><strong>Genome FASTA:</strong> <code>Scophthalmus_maximus.ASM1334776v1.dna.toplevel.fa</code></li>
+<li><strong>Annotation GTF:</strong> <code>Scophthalmus_maximus.ASM1334776v1.113.gtf</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="bioinformatic-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="bioinformatic-analysis">8. Bioinformatic Analysis</h2>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">8.1 Overview</h3>
+<p>The bioinformatic workflow included:</p>
+<ol type="1">
+<li>Raw read quality control<br>
+</li>
+<li>Alignment to the reference genome<br>
+</li>
+<li>Gene-level quantification<br>
+</li>
+<li>Differential expression analysis<br>
+</li>
+<li>Functional enrichment analysis</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Flowchart_RNAseq_pipeline.png" class="img-fluid figure-img"></p>
+<figcaption>RNA-seq bioinformatic workflow</figcaption>
+</figure>
+</div>
+<p><em>Figure 4. RNA-seq bioinformatic analysis pipeline.</em></p>
+<hr>
+</section>
+</section>
+<section id="notes-and-next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="notes-and-next-steps">9. Notes and Next Steps</h2>
+<p>This transcriptomic dataset provides a solid foundation for:</p>
+<ul>
+<li>Integrating GWAS candidate genes</li>
+<li>Cross-validating pigmentation pathways</li>
+<li>Comparative analyses with other flatfish species</li>
+<li>Multi-omics integration within the HOLOFISHCOLOUR framework</li>
+</ul>
+<p>Further refinement will include: - Differential expression results - GO / KEGG enrichment - Integration with phenotypic pigmentation metrics</p>
+<hr>
+<p><em>End of document</em></p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
