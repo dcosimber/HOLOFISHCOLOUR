@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Daniel Costas">
-<meta name="dcterms.date" content="2025-12-18">
+<meta name="dcterms.date" content="2025-12-19">
 
 <title>HOLOFISHCOLOUR — Transcriptomic Analysis</title>
 <style>
@@ -254,19 +254,20 @@ div.csl-indent {
   <li><a href="#rna-extraction-and-quality-assessment" id="toc-rna-extraction-and-quality-assessment" class="nav-link" data-scroll-target="#rna-extraction-and-quality-assessment"><span class="header-section-number">3.4</span> 4. RNA Extraction and Quality Assessment</a>
   <ul class="collapse">
   <li><a href="#rna-isolation" id="toc-rna-isolation" class="nav-link" data-scroll-target="#rna-isolation"><span class="header-section-number">3.4.1</span> 4.1 RNA Isolation</a></li>
-  <li><a href="#rna-extraction-quality-metrics" id="toc-rna-extraction-quality-metrics" class="nav-link" data-scroll-target="#rna-extraction-quality-metrics"><span class="header-section-number">3.4.2</span> 4.2 RNA Extraction Quality Metrics</a></li>
+  <li><a href="#rna-extraction-quality-metrics" id="toc-rna-extraction-quality-metrics" class="nav-link" data-scroll-target="#rna-extraction-quality-metrics"><span class="header-section-number">3.4.2</span> RNA Extraction Quality Metrics</a></li>
   </ul></li>
   <li><a href="#rna-seq-library-preparation-and-sequencing" id="toc-rna-seq-library-preparation-and-sequencing" class="nav-link" data-scroll-target="#rna-seq-library-preparation-and-sequencing"><span class="header-section-number">3.5</span> RNA-Seq Library Preparation and Sequencing</a></li>
-  <li><a href="#rna-quality-control-bioanalyzer" id="toc-rna-quality-control-bioanalyzer" class="nav-link" data-scroll-target="#rna-quality-control-bioanalyzer"><span class="header-section-number">3.6</span> 6. RNA Quality Control (Bioanalyzer)</a></li>
-  <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome"><span class="header-section-number">3.7</span> 7. Reference Genome</a>
+  <li><a href="#rna-quality-control" id="toc-rna-quality-control" class="nav-link" data-scroll-target="#rna-quality-control"><span class="header-section-number">3.6</span> RNA Quality Control</a></li>
+  <li><a href="#bioinformatic-analysis" id="toc-bioinformatic-analysis" class="nav-link" data-scroll-target="#bioinformatic-analysis"><span class="header-section-number">3.7</span> Bioinformatic Analysis</a>
   <ul class="collapse">
-  <li><a href="#genome-statistics" id="toc-genome-statistics" class="nav-link" data-scroll-target="#genome-statistics"><span class="header-section-number">3.7.1</span> 7.1 Genome Statistics</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">3.7.1</span> Overview</a></li>
   </ul></li>
-  <li><a href="#bioinformatic-analysis" id="toc-bioinformatic-analysis" class="nav-link" data-scroll-target="#bioinformatic-analysis"><span class="header-section-number">3.8</span> 8. Bioinformatic Analysis</a>
+  <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome"><span class="header-section-number">3.8</span> Reference Genome</a>
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">3.8.1</span> 8.1 Overview</a></li>
+  <li><a href="#genome-statistics" id="toc-genome-statistics" class="nav-link" data-scroll-target="#genome-statistics"><span class="header-section-number">3.8.1</span> Genome statistics</a></li>
+  <li><a href="#genome-and-annotation-files-used" id="toc-genome-and-annotation-files-used" class="nav-link" data-scroll-target="#genome-and-annotation-files-used"><span class="header-section-number">3.8.2</span> Genome and annotation files used</a></li>
   </ul></li>
-  <li><a href="#notes-and-next-steps" id="toc-notes-and-next-steps" class="nav-link" data-scroll-target="#notes-and-next-steps"><span class="header-section-number">3.9</span> 9. Notes and Next Steps</a></li>
+  <li><a href="#notes-and-next-steps" id="toc-notes-and-next-steps" class="nav-link" data-scroll-target="#notes-and-next-steps"><span class="header-section-number">3.9</span> Notes and Next Steps</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
   </ul>
@@ -285,7 +286,7 @@ div.csl-indent {
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
   
     <div class="quarto-title-meta-contents">
     <p class="author">Daniel Costas <a href="mailto:dcostas@iim.csic.es" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-4384-8469" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
@@ -294,6 +295,11 @@ div.csl-indent {
         <p class="affiliation">
             <a href="www.iim.csic.es">
             Instituto de Investigaciones Marinas (IIM-CSIC)
+            </a>
+          </p>
+        <p class="affiliation">
+            <a href="https://acuabiotec.csic.es">
+            Aquabiotec Lab
             </a>
           </p>
       </div>
@@ -305,7 +311,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 18, 2025</p>
+      <p class="date">December 19, 2025</p>
     </div>
   </div>
   
@@ -319,9 +325,9 @@ div.csl-indent {
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>Pigmentation disorders represent one of the major biological and economic constraints in flatfish aquaculture. In turbot (<em>Scophthalmus maximus</em>), these abnormalities mainly manifest as pseudo-albinism on the ocular side and hypermelanosis on the blind side, leading to a substantial reduction in market value and production efficiency. Such defects originate during early development, particularly around metamorphosis, when asymmetric body patterning and pigmentation are established, and are thought to result from complex interactions between genetic background and environmental factors such as nutrition, light regime, and rearing conditions <span class="citation" data-cites="Matsumoto1990 Hamre2013 Yufera2019">(<a href="#ref-Matsumoto1990" role="doc-biblioref">Matsumoto and Seikai 1990</a>; <a href="#ref-Hamre2013" role="doc-biblioref">Hamre et al. 2013</a>; <a href="#ref-Yufera2019" role="doc-biblioref"><strong>Yufera2019?</strong></a>)</span>.</p>
-<p>Despite decades of research, the molecular mechanisms underlying pigmentation disorders in flatfish remain only partially understood. Previous studies have implicated key biological processes including melanocyte differentiation, neural crest cell migration, retinoid and thyroid hormone signaling, and calcium homeostasis as central drivers of pigment cell development and maintenance <span class="citation" data-cites="Seikai1994 Taguchi2008 Yao2022">(<a href="#ref-Seikai1994" role="doc-biblioref"><strong>Seikai1994?</strong></a>; <a href="#ref-Taguchi2008" role="doc-biblioref"><strong>Taguchi2008?</strong></a>; <a href="#ref-Yao2022" role="doc-biblioref"><strong>Yao2022?</strong></a>)</span>. However, much of the available evidence is based on candidate-gene approaches or interspecific comparisons, and comprehensive transcriptome-wide analyses in turbot are still limited.</p>
-<p>High-throughput RNA sequencing (RNA-seq) provides a powerful, unbiased approach to investigate complex phenotypes by enabling genome-wide quantification of gene expression. In pigmentation research, transcriptomic studies have successfully identified differentially expressed genes and regulatory pathways associated with melanogenesis, chromatophore development, and pigment cell survival in several flatfish and teleost species <span class="citation" data-cites="Liu2016 Li2021">(<a href="#ref-Liu2016" role="doc-biblioref">Liu, Wang, and Zheng 2016</a>; <a href="#ref-Li2021" role="doc-biblioref"><strong>Li2021?</strong></a>)</span>. These approaches are particularly well suited to disentangle the polygenic architecture of pigmentation disorders, which are unlikely to be explained by single major-effect loci alone.</p>
+<p>Pigmentation disorders represent one of the major biological and economic constraints in flatfish aquaculture. In turbot (<em>Scophthalmus maximus</em>), these abnormalities mainly manifest as pseudo-albinism on the ocular side and hypermelanosis on the blind side, leading to a substantial reduction in market value and production efficiency. Such defects originate during early development, particularly around metamorphosis, when asymmetric body patterning and pigmentation are established, and are thought to result from complex interactions between genetic background and environmental factors such as nutrition, light regime, and rearing conditions <span class="citation" data-cites="Matsumoto1990 Hamre2013 Yufera2018">(<a href="#ref-Matsumoto1990" role="doc-biblioref"><strong>Matsumoto1990?</strong></a>; <a href="#ref-Hamre2013" role="doc-biblioref"><strong>Hamre2013?</strong></a>; <a href="#ref-Yufera2018" role="doc-biblioref">Yúfera 2018</a>)</span>.</p>
+<p>Despite decades of research, the molecular mechanisms underlying pigmentation disorders in flatfish remain only partially understood. Previous studies have implicated key biological processes including melanocyte differentiation, neural crest cell migration, retinoid and thyroid hormone signaling, and calcium homeostasis as central drivers of pigment cell development and maintenance <span class="citation" data-cites="Seikai1994 Taguchi2008 Yao2022">(<a href="#ref-Seikai1994" role="doc-biblioref">Seikai and Matsumoto 1994</a>; <a href="#ref-Taguchi2008" role="doc-biblioref"><strong>Taguchi2008?</strong></a>; <a href="#ref-Yao2022" role="doc-biblioref">Yao et al. 2022</a>)</span>. However, much of the available evidence is based on candidate-gene approaches or interspecific comparisons, and comprehensive transcriptome-wide analyses in turbot are still limited.</p>
+<p>High-throughput RNA sequencing (RNA-seq) provides a powerful, unbiased approach to investigate complex phenotypes by enabling genome-wide quantification of gene expression. In pigmentation research, transcriptomic studies have successfully identified differentially expressed genes and regulatory pathways associated with melanogenesis, chromatophore development, and pigment cell survival in several flatfish and teleost species <span class="citation" data-cites="Liu2016 Li2021">(<a href="#ref-Liu2016" role="doc-biblioref">Liu et al. 2016</a>; <a href="#ref-Li2021" role="doc-biblioref">Li et al. 2021</a>)</span>. These approaches are particularly well suited to disentangle the polygenic architecture of pigmentation disorders, which are unlikely to be explained by single major-effect loci alone.</p>
 <p>Within the HOLOFISHCOLOUR project, transcriptomic characterization constitutes a key component for linking genomic variation to functional biological mechanisms. By comparing gene expression profiles between normally pigmented and malpigmented turbot across biologically relevant tissues, this task aims to identify molecular signatures associated with pigmentation anomalies and to complement ongoing genomic, histological, and microbiome analyses. Together, these integrative results will contribute to a holistic, multi-omics understanding of pigmentation disorders in turbot aquaculture.</p>
 </section>
 <section id="objectives" class="level1" data-number="2">
@@ -784,7 +790,7 @@ div.csl-indent {
 </div>
 </section>
 <section id="rna-extraction-quality-metrics" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="rna-extraction-quality-metrics"><span class="header-section-number">3.4.2</span> 4.2 RNA Extraction Quality Metrics</h3>
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="rna-extraction-quality-metrics"><span class="header-section-number">3.4.2</span> RNA Extraction Quality Metrics</h3>
 <p><strong>Table 2. RNA concentration and purity metrics</strong></p>
 <table class="caption-top table">
 <thead>
@@ -887,29 +893,463 @@ Table&nbsp;1: RNA-Seq specifications
 </div>
 <hr>
 </section>
-<section id="rna-quality-control-bioanalyzer" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="rna-quality-control-bioanalyzer"><span class="header-section-number">3.6</span> 6. RNA Quality Control (Bioanalyzer)</h2>
-<p>RNA integrity was evaluated using the <strong>Agilent 5400 Bioanalyzer</strong>, generating RNA Integrity Number (RIN) values.</p>
-<ul>
-<li>Most samples showed <strong>RIN values between 7.0 and 9.8</strong>, suitable for RNA-seq.</li>
-<li>Sample <strong>IT12 (RIN = 3.8)</strong> failed QC and was excluded.</li>
-<li>Sample <strong>IT16 (RIN = 6.0)</strong> showed moderate degradation and was also discarded.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Figure_20_RNA_QC.png" class="img-fluid figure-img"></p>
-<figcaption>RNA Bioanalyzer profiles</figcaption>
+<section id="rna-quality-control" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="rna-quality-control"><span class="header-section-number">3.6</span> RNA Quality Control</h2>
+<p>RNA quality assessment was performed as a mandatory quality control step prior to RNA-Seq library preparation and sequencing. RNA concentration, integrity, and purity metrics were evaluated by Novogene using the <strong>Agilent 5400 Bioanalyzer</strong>, following standard procedures for transcriptomic applications.</p>
+<p>The complete quality control results for all submitted samples are summarized in <a href="#tbl-rnaseq-qc" class="quarto-xref">Table&nbsp;2</a>, including RNA concentration, total RNA amount, RNA Integrity Number (RIN), and final QC status. Representative electropherograms generated during the analysis are shown in <a href="#fig-rin-electropherograms" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>RNA Integrity Number (RIN): technical background
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="fig-rin-electropherograms" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rin-electropherograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/RIN_explanation.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rin-electropherograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Representative RNA electropherograms illustrating different levels of RNA integrity (RIN = 10, 5, and 3).
+</figcaption>
 </figure>
 </div>
-<p><em>Figure 3. Representative Bioanalyzer electropherograms.</em></p>
+<p>The <strong>RNA Integrity Number (RIN)</strong> is a numerical score ranging from <strong>1 (fully degraded RNA)</strong> to <strong>10 (intact RNA)</strong>, widely used to assess total RNA quality. RIN values are computed from automated electrophoretic analyses performed on platforms such as the Agilent Bioanalyzer.</p>
+<p>The RIN algorithm evaluates multiple features of the electropherogram, including:</p>
+<ul>
+<li>The presence, height, and sharpness of ribosomal RNA peaks (primarily <strong>18S and 28S rRNA</strong> in eukaryotes). High-quality RNA typically displays well-defined 18S and 28S peaks with an approximate <strong>2:1 intensity ratio</strong>.</li>
+<li>Background signal and degree of fragmentation. Degraded RNA is characterized by reduced or absent ribosomal peaks and increased signal corresponding to low-molecular-weight fragments.</li>
+<li>Overall signal distribution across fragment sizes, reflecting progressive RNA degradation.</li>
+</ul>
+<p>In high-quality samples, electropherograms show sharp and well-resolved rRNA peaks with low background noise. In contrast, degraded samples exhibit flattened or missing rRNA peaks and a pronounced accumulation of short RNA fragments.</p>
+</div>
+</div>
+<p>Most samples exhibited <strong>RIN values between 7.0 and 9.8</strong>, which are generally considered suitable for RNA-Seq library construction and downstream differential gene expression analyses. RNA concentrations also fell within acceptable ranges for library preparation, although moderate variability among samples was observed.</p>
+<p>Two samples deviated from the expected quality standards:</p>
+<ul>
+<li><strong>IT12</strong> showed a <strong>low RIN value (3.8)</strong>, indicating substantial RNA degradation. This sample was classified as <em>Fail</em> and deemed unsuitable for RNA-Seq.</li>
+<li><strong>IT16</strong> displayed an intermediate <strong>RIN value of 6.0</strong>, suggesting partial degradation that could compromise sequencing quality and data interpretation.</li>
+</ul>
+<p>Additionally, <strong>ITPNK</strong> exhibited slight genomic DNA contamination, as indicated in the Novogene QC report. Despite this observation, the sample passed overall QC criteria.</p>
+<p>Given that the sequencing budget covered <strong>24 RNA-Seq libraries</strong> and <strong>26 samples</strong> were initially submitted, <strong>samples IT12 and IT16 were excluded from sequencing</strong>. The remaining samples met the quality requirements for transcriptomic analysis and were retained for RNA-Seq library preparation and sequencing.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">QC Summary</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Bioanalyzer Electropherograms</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tbl-rnaseq-qc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rnaseq-qc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Summary of RNA concentration, integrity (RIN), and QC status for samples assessed prior to RNA-Seq library preparation.
+</figcaption>
+<div aria-describedby="tbl-rnaseq-qc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">No.</th>
+<th style="text-align: center;">Sample</th>
+<th style="text-align: center;">Concentration (ng/µl)</th>
+<th style="text-align: center;">Volume (µl)</th>
+<th style="text-align: center;">Total amount (µg)</th>
+<th style="text-align: center;">RIN</th>
+<th style="text-align: center;">Sample QC Results</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">P31</td>
+<td style="text-align: center;">1851.34</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">29.62141</td>
+<td style="text-align: center;">7.7</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">P32</td>
+<td style="text-align: center;">2022.42</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32.35878</td>
+<td style="text-align: center;">8.3</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">P33</td>
+<td style="text-align: center;">483.84</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">6.28990</td>
+<td style="text-align: center;">8.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">P34</td>
+<td style="text-align: center;">826.81</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">14.05583</td>
+<td style="text-align: center;">8.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">P35</td>
+<td style="text-align: center;">430.00</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">6.87994</td>
+<td style="text-align: center;">8.2</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">P36</td>
+<td style="text-align: center;">447.89</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">7.16622</td>
+<td style="text-align: center;">7.2</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">P41</td>
+<td style="text-align: center;">1270.12</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">20.32186</td>
+<td style="text-align: center;">9.3</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">P42</td>
+<td style="text-align: center;">888.98</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">16.89067</td>
+<td style="text-align: center;">8.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">P43</td>
+<td style="text-align: center;">1343.73</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">25.53087</td>
+<td style="text-align: center;">8.0</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">P44</td>
+<td style="text-align: center;">1961.08</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">35.29941</td>
+<td style="text-align: center;">7.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">P45</td>
+<td style="text-align: center;">709.86</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">12.77749</td>
+<td style="text-align: center;">8.1</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">P46</td>
+<td style="text-align: center;">768.56</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">13.83416</td>
+<td style="text-align: center;">8.9</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">P47</td>
+<td style="text-align: center;">342.27</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">6.50313</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">P48</td>
+<td style="text-align: center;">404.26</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">6.87242</td>
+<td style="text-align: center;">7.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">P49</td>
+<td style="text-align: center;">954.50</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">15.27201</td>
+<td style="text-align: center;">8.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">P50</td>
+<td style="text-align: center;">295.43</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">4.72680</td>
+<td style="text-align: center;">9.6</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">P51</td>
+<td style="text-align: center;">2511.00</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">32.64302</td>
+<td style="text-align: center;">9.5</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">P52</td>
+<td style="text-align: center;">578.87</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">8.68312</td>
+<td style="text-align: center;">9.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">P1G</td>
+<td style="text-align: center;">150.06</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">2.40097</td>
+<td style="text-align: center;">8.9</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">P2G</td>
+<td style="text-align: center;">192.33</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">3.07729</td>
+<td style="text-align: center;">9.0</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">PNKD</td>
+<td style="text-align: center;">417.18</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">7.50923</td>
+<td style="text-align: center;">8.7</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">PNKV</td>
+<td style="text-align: center;">221.19</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">3.76027</td>
+<td style="text-align: center;">8.4</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">IT12</td>
+<td style="text-align: center;">2422.80</td>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">41.18753</td>
+<td style="text-align: center;">3.8</td>
+<td style="text-align: center;">Fail</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">IT16</td>
+<td style="text-align: center;">2988.15</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">53.78664</td>
+<td style="text-align: center;">6.0</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">IT1G</td>
+<td style="text-align: center;">2842.68</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">45.48292</td>
+<td style="text-align: center;">7.8</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">ITPNK</td>
+<td style="text-align: center;">4493.36</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">80.88050</td>
+<td style="text-align: center;">7.1</td>
+<td style="text-align: center;">Pass</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">IT12</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">IT16</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">IT1G</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">ITPNK</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">PNKD</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">PNKV</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false" href="">P1G</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-8-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-8" role="tab" aria-controls="tabset-1-8" aria-selected="false" href="">P2G</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-9-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-9" role="tab" aria-controls="tabset-1-9" aria-selected="false" href="">P31</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-10-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-10" role="tab" aria-controls="tabset-1-10" aria-selected="false" href="">P32</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-11-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-11" role="tab" aria-controls="tabset-1-11" aria-selected="false" href="">P33</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-12-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-12" role="tab" aria-controls="tabset-1-12" aria-selected="false" href="">P34</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-13-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-13" role="tab" aria-controls="tabset-1-13" aria-selected="false" href="">P35</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-14-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-14" role="tab" aria-controls="tabset-1-14" aria-selected="false" href="">P36</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-15-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-15" role="tab" aria-controls="tabset-1-15" aria-selected="false" href="">P41</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-16-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-16" role="tab" aria-controls="tabset-1-16" aria-selected="false" href="">P42</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-17-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-17" role="tab" aria-controls="tabset-1-17" aria-selected="false" href="">P43</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-18-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-18" role="tab" aria-controls="tabset-1-18" aria-selected="false" href="">P44</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-19-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-19" role="tab" aria-controls="tabset-1-19" aria-selected="false" href="">P45</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-20-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-20" role="tab" aria-controls="tabset-1-20" aria-selected="false" href="">P46</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-21-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-21" role="tab" aria-controls="tabset-1-21" aria-selected="false" href="">P47</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-22-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-22" role="tab" aria-controls="tabset-1-22" aria-selected="false" href="">P48</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-23-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-23" role="tab" aria-controls="tabset-1-23" aria-selected="false" href="">P49</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-24-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-24" role="tab" aria-controls="tabset-1-24" aria-selected="false" href="">P50</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-25-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-25" role="tab" aria-controls="tabset-1-25" aria-selected="false" href="">P51</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-26-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-26" role="tab" aria-controls="tabset-1-26" aria-selected="false" href="">P52</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><img src="figures/integrity_RIN/IT12.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><img src="figures/integrity_RIN/IT16.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><img src="figures/integrity_RIN/IT1G.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><img src="figures/integrity_RIN/ITPNK.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p><img src="figures/integrity_RIN/PNKD.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<p><img src="figures/integrity_RIN/PNKV.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<p><img src="figures/integrity_RIN/P1G.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
+<p><img src="figures/integrity_RIN/P2G.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-9" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-9-tab">
+<p><img src="figures/integrity_RIN/P31.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-10" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-10-tab">
+<p><img src="figures/integrity_RIN/P32.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-11" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-11-tab">
+<p><img src="figures/integrity_RIN/P33.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-12" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-12-tab">
+<p><img src="figures/integrity_RIN/P34.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-13" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-13-tab">
+<p><img src="figures/integrity_RIN/P35.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-14" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-14-tab">
+<p><img src="figures/integrity_RIN/P36.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-15" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-15-tab">
+<p><img src="figures/integrity_RIN/P41.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-16" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-16-tab">
+<p><img src="figures/integrity_RIN/P42.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-17" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-17-tab">
+<p><img src="figures/integrity_RIN/P43.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-18" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-18-tab">
+<p><img src="figures/integrity_RIN/P44.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-19" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-19-tab">
+<p><img src="figures/integrity_RIN/P45.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-20" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-20-tab">
+<p><img src="figures/integrity_RIN/P46.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-21" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-21-tab">
+<p><img src="figures/integrity_RIN/P47.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-22" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-22-tab">
+<p><img src="figures/integrity_RIN/P48.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-23" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-23-tab">
+<p><img src="figures/integrity_RIN/P49.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-24" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-24-tab">
+<p><img src="figures/integrity_RIN/P50.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-25" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-25-tab">
+<p><img src="figures/integrity_RIN/P51.PNG" class="img-fluid"></p>
+</div>
+<div id="tabset-1-26" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-26-tab">
+<p><img src="figures/integrity_RIN/P52.PNG" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Figure: RNA quality control electropherograms generated using the Agilent 5400 Bioanalyzer. Each tab corresponds to one sample and displays the characteristic 18S and 28S rRNA peaks and fragment size distribution used to assess RNA integrity prior to sequencing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Technical notes from the Novogene RNA QC report
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Q1. What is the influence of RNA concentration on library construction?</strong><br>
+RNA concentration determines the total RNA input available for library preparation. Insufficient RNA input may result in low library yield or library construction failure. Additional RNA concentration steps may increase degradation risk.</p>
+<p><strong>Q2. Does genomic DNA contamination affect poly(A)-enriched mRNA library preparation?</strong><br>
+Genomic DNA is not retained during poly(A) enrichment–based mRNA library preparation. Therefore, low-level genomic DNA contamination does not affect downstream library construction when samples pass QC.</p>
+<p><strong>Q3. What RNA purification methods are used and how much RNA loss is expected?</strong><br>
+RNA purification is typically performed using column-based or magnetic bead–based methods. RNA loss after purification is expected to be approximately <strong>60%</strong>, depending on the purification strategy and initial RNA quality.</p>
+</div>
+</div>
 <hr>
 </section>
-<section id="reference-genome" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="reference-genome"><span class="header-section-number">3.7</span> 7. Reference Genome</h2>
-<p>RNA-seq analyses were conducted using the <strong>Scophthalmus maximus ASM1334776v1</strong> genome assembly (Ensembl release 113).</p>
-<section id="genome-statistics" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="genome-statistics"><span class="header-section-number">3.7.1</span> 7.1 Genome Statistics</h3>
-<p><strong>Table 4. Reference genome summary</strong></p>
+<section id="bioinformatic-analysis" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="bioinformatic-analysis"><span class="header-section-number">3.7</span> Bioinformatic Analysis</h2>
+<section id="overview" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">3.7.1</span> Overview</h3>
+<p>The bioinformatic workflow included:</p>
+<ol type="1">
+<li>Raw read quality control</li>
+<li>Alignment to the reference genome</li>
+<li>Gene-level quantification</li>
+<li>Differential expression analysis</li>
+<li>Functional enrichment analysis</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Flowchart_RNAseq_pipeline.png" class="img-fluid figure-img"></p>
+<figcaption>RNA-seq bioinformatic workflow</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="reference-genome" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="reference-genome"><span class="header-section-number">3.8</span> Reference Genome</h2>
+<p>RNA-seq analyses were conducted using the <strong>Scophthalmus maximus ASM1334776v1</strong> reference genome assembly and its corresponding gene annotation, both obtained from <strong>Ensembl (release 113)</strong>. This assembly provides comprehensive coverage of the turbot genome, including both assembled chromosomes and unplaced contigs and scaffolds.</p>
+<p>The reference genome and annotation files are publicly available from Ensembl:<br>
+<a href="https://www.ensembl.org/Scophthalmus_maximus/Info/Index" class="uri">https://www.ensembl.org/Scophthalmus_maximus/Info/Index</a></p>
+<section id="genome-statistics" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="genome-statistics"><span class="header-section-number">3.8.1</span> Genome statistics</h3>
+<div id="tbl-ref_gen_summary" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ref_gen_summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Reference genome summary statistics
+</figcaption>
+<div aria-describedby="tbl-ref_gen_summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -935,51 +1375,72 @@ Table&nbsp;1: RNA-Seq specifications
 <td>12,989</td>
 </tr>
 <tr class="odd">
+<td>Pseudogenes</td>
+<td>201</td>
+</tr>
+<tr class="even">
 <td>Gene transcripts</td>
 <td>76,329</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Annotation source</td>
-<td>Ensembl</td>
+<td>Ensembl (v113)</td>
 </tr>
 </tbody>
 </table>
-<p>The following files were used:</p>
-<ul>
-<li><strong>Genome FASTA:</strong> <code>Scophthalmus_maximus.ASM1334776v1.dna.toplevel.fa</code></li>
-<li><strong>Annotation GTF:</strong> <code>Scophthalmus_maximus.ASM1334776v1.113.gtf</code></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="bioinformatic-analysis" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="bioinformatic-analysis"><span class="header-section-number">3.8</span> 8. Bioinformatic Analysis</h2>
-<section id="overview" class="level3" data-number="3.8.1">
-<h3 data-number="3.8.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">3.8.1</span> 8.1 Overview</h3>
-<p>The bioinformatic workflow included:</p>
-<ol type="1">
-<li>Raw read quality control<br>
-</li>
-<li>Alignment to the reference genome<br>
-</li>
-<li>Gene-level quantification<br>
-</li>
-<li>Differential expression analysis<br>
-</li>
-<li>Functional enrichment analysis</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/Flowchart_RNAseq_pipeline.png" class="img-fluid figure-img"></p>
-<figcaption>RNA-seq bioinformatic workflow</figcaption>
+</div>
 </figure>
 </div>
-<p><em>Figure 4. RNA-seq bioinformatic analysis pipeline.</em></p>
+</section>
+<section id="genome-and-annotation-files-used" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="genome-and-annotation-files-used"><span class="header-section-number">3.8.2</span> Genome and annotation files used</h3>
+<p>For read alignment and transcript quantification, we used the <strong>toplevel genome FASTA file</strong> (<code>Scophthalmus_maximus.ASM1334776v1.dna.toplevel.fa</code>) and the <strong>full Ensembl gene annotation in GTF format</strong> (<code>Scophthalmus_maximus.ASM1334776v1.113.gtf</code>). These files were downloaded from the Ensembl FTP server (release 113):</p>
+<ul>
+<li><p>Genome FASTA: <a href="https://ftp.ensembl.org/pub/release-113/fasta/scophthalmus_maximus/dna/" class="uri">https://ftp.ensembl.org/pub/release-113/fasta/scophthalmus_maximus/dna/</a></p></li>
+<li><p>Gene annotation (GTF): <a href="https://ftp.ensembl.org/pub/release-113/gtf/scophthalmus_maximus/" class="uri">https://ftp.ensembl.org/pub/release-113/gtf/scophthalmus_maximus/</a></p></li>
+</ul>
+<p>This combination ensures that RNA-seq reads mapping to both chromosomal and non-chromosomal regions are retained, preventing the loss of annotated genes located in unassembled genomic regions. The <strong>GTF format</strong> was selected due to its broad compatibility with RNA-seq analysis tools such as <strong>STAR</strong>, <strong>HTSeq</strong>, and <strong>featureCounts</strong>, and its suitability for transcript-level quantification.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Genome and annotation file types (Ensembl technical note)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Genome and annotation file types (Ensembl technical note)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ensembl provides multiple genome sequence and annotation file types, each optimized for different applications. The main file types relevant for RNA-seq analyses are summarized below.</p>
+<p><strong>Genome FASTA files</strong></p>
+<ul>
+<li><p><strong><code>*.dna.toplevel.fa</code></strong> ✅ <em>(used in this study)</em><br>
+Includes all assembled chromosomes as well as unplaced contigs and scaffolds. This is the most comprehensive genome representation and ensures that RNA-seq reads mapping to non-chromosomal regions are not lost.</p></li>
+<li><p><strong><code>*.dna.primary_assembly.fa</code></strong><br>
+Contains only primary assembled chromosomes and selected scaffolds, excluding smaller unplaced contigs.</p></li>
+<li><p><strong><code>*.dna.chromosome.*.fa</code></strong><br>
+Individual FASTA files for each chromosome, mainly useful for region-specific or targeted analyses.</p></li>
+<li><p><strong><code>*.dna.nonchromosomal.fa</code></strong><br>
+Contains only unplaced contigs and scaffolds and is not suitable for whole-transcriptome RNA-seq analyses.</p></li>
+<li><p><strong><code>*.dna_sm.toplevel.fa</code></strong><br>
+Equivalent to the toplevel FASTA file but soft-masked (repetitive regions in lowercase). This is not required for standard RNA-seq workflows.</p></li>
+</ul>
+<p><strong>Gene annotation files</strong></p>
+<ul>
+<li><p><strong>GTF (<code>*.gtf</code>)</strong> ✅ <em>(used in this study)</em><br>
+Compact gene annotation format optimized for RNA-seq analysis pipelines. Fully compatible with tools such as <strong>STAR</strong>, <strong>HTSeq</strong>, and <strong>featureCounts</strong>.</p></li>
+<li><p><strong>GFF3 (<code>*.gff3</code>)</strong><br>
+A more general-purpose annotation format that includes additional genomic features but often requires conversion for RNA-seq applications.</p></li>
+<li><p><strong>Ab initio GTF (<code>*.abinitio.gtf</code>)</strong><br>
+Contains gene predictions generated without experimental evidence and was not used due to lower reliability.</p></li>
+</ul>
+<p>Overall, the combination of the <strong>toplevel genome assembly</strong> and the <strong>full Ensembl GTF annotation</strong> provides a robust and comprehensive reference framework for RNA-seq analyses, minimizing mapping bias and ensuring accurate gene expression quantification across the entire turbot genome.</p>
+</div>
+</div>
 <hr>
 </section>
 </section>
 <section id="notes-and-next-steps" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="notes-and-next-steps"><span class="header-section-number">3.9</span> 9. Notes and Next Steps</h2>
+<h2 data-number="3.9" class="anchored" data-anchor-id="notes-and-next-steps"><span class="header-section-number">3.9</span> Notes and Next Steps</h2>
 <p>This transcriptomic dataset provides a solid foundation for:</p>
 <ul>
 <li>Integrating GWAS candidate genes</li>
@@ -997,14 +1458,20 @@ Table&nbsp;1: RNA-Seq specifications
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Hamre2013" class="csl-entry" role="listitem">
-Hamre, K., M. Yúfera, I. Rønnestad, and C. Boglione. 2013. <span>“Metamorphosis and Malpigmentation in Flatfish.”</span> <em>Aquaculture Nutrition</em> 19: 601–13.
+<div id="ref-Li2021" class="csl-entry" role="listitem">
+Li, Yangzhen, Yuanri Hu, Weiwei Zheng, Zhongkai Cui, Jiayu Cheng, Peng Cheng, and Tingting Zhang. 2021. <span>“<span class="nocase">Insights into the heritable variation of hypermelanosis in Chinese tongue sole (Cynoglossus semilaevis): Potential for future selective breeding</span>.”</span> <em>Aquaculture</em> 539 (June): 736617. <a href="https://doi.org/10.1016/J.AQUACULTURE.2021.736617">https://doi.org/10.1016/J.AQUACULTURE.2021.736617</a>.
 </div>
 <div id="ref-Liu2016" class="csl-entry" role="listitem">
-Liu, F., X. Wang, and Y. Zheng. 2016. <span>“Transcriptomic Analysis of Pigmentation in Flatfish.”</span> <em>BMC Genomics</em> 17: 100.
+Liu, Feng, Yingming Yang, Yangzhen Li, Hua Guo, Huan Dai, Jin Gao, Yongzhen Zhang, et al. 2016. <span>“<span class="nocase">Phenotypic and genetic parameter estimation of juvenile growth and bottom color traits in half-smooth tongue sole, Cynoglossus semilaevis</span>.”</span> <em>Acta Oceanologica Sinica</em> 35 (10): 83–87. <a href="https://doi.org/10.1007/S13131-016-0888-8/METRICS">https://doi.org/10.1007/S13131-016-0888-8/METRICS</a>.
 </div>
-<div id="ref-Matsumoto1990" class="csl-entry" role="listitem">
-Matsumoto, J., and T. Seikai. 1990. <span>“Asymmetric Pigmentation and Metamorphosis in Flatfish.”</span> <em>Aquaculture</em> 84: 179–90.
+<div id="ref-Seikai1994" class="csl-entry" role="listitem">
+Seikai, Tadahisa, and Jiro Matsumoto. 1994. <span>“<span class="nocase">Mechanism of Pseudoalbinism in Flatfish: An Association Between Pigment Cell and Skin Differentiation</span>.”</span> <em>Journal of the World Aquaculture Society</em> 25 (1): 78–85. <a href="https://doi.org/10.1111/J.1749-7345.1994.TB00807.X;PAGEGROUP:STRING:PUBLICATION">https://doi.org/10.1111/J.1749-7345.1994.TB00807.X;PAGEGROUP:STRING:PUBLICATION</a>.
+</div>
+<div id="ref-Yao2022" class="csl-entry" role="listitem">
+Yao, Na, Yaqun Zhang, Yangzhen Li, Yuanri Hu, and Hengde Li. 2022. <span>“<span class="nocase">Genetic analysis of hypermelanosis in Chinese tongue sole (Cynoglossus semilaevis)</span>.”</span> <em>Frontiers in Marine Science</em> 9 (October): 1002292. <a href="https://doi.org/10.3389/FMARS.2022.1002292/BIBTEX">https://doi.org/10.3389/FMARS.2022.1002292/BIBTEX</a>.
+</div>
+<div id="ref-Yufera2018" class="csl-entry" role="listitem">
+Yúfera, Manuel. 2018. <span>“<span class="nocase">Emerging issues in fish larvae research</span>.”</span> <em>Emerging Issues in Fish Larvae Research</em>, January, 1–296. <a href="https://doi.org/10.1007/978-3-319-73244-2/COVER">https://doi.org/10.1007/978-3-319-73244-2/COVER</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->

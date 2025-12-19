@@ -181,3 +181,11 @@ section {
 .quarto-dark #TOC ul ul li a {
   color: #ccc;
 }
+
+/* Bibliography spacing + justification (Quarto/Pandoc) */
+
+#refs .csl-entry{
+  margin-bottom: 1em !important;
+  text-align: justify;
+  text-justify: inter-word;
+}
