@@ -58,3 +58,5 @@ The analysis is organised into the following sections:
 All analyses were performed on the CESGA HPC infrastructure.  
 Pipeline outputs were generated using nf-core standards and selectively integrated into this report to ensure clarity, traceability and reproducibility.
 
+
+<!-- trigger pages -->
