@@ -2,7 +2,7 @@
 title: "HOLOFISHCOLOUR — Transcriptomic Analysis"
 author:
   - name: Daniel Costas
-    id: dc
+    id: DCI
     orcid: 0000-0003-4384-8469
     email: dcostas@iim.csic.es
     affiliation: 
